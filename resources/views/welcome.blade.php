@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Who is Mario?</title>
+    <title>Quem é Mario?🧑🏼‍🔧</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -80,7 +80,7 @@
         }
 
         // Atualiza a temperatura automaticamente a cada 3 segundos
-        setInterval(fetchData, 600000);
+        setInterval(fetchData, 60000);
         window.onload = fetchData;
     </script>
 
