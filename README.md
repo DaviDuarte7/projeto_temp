@@ -1,4 +1,4 @@
-# 📡 Monitoramento de Temperatura com ESP32, Laravel, MySQL e Bootstrap
+# 📡 Monitoramento de Temperatura com ESP32
 
 Este projeto consiste em um sistema completo de monitoramento de temperatura utilizando um microcontrolador ESP32, uma API em Laravel, banco de dados MySQL, e uma interface web responsiva com Bootstrap. O objetivo é registrar leituras de temperatura de forma periódica, armazená-las e disponibilizá-las para visualização e análise.
 
