@@ -13,9 +13,9 @@ const float betaCoefficient = 3950.0;
 const float supplyVoltage = 3.3;
 const int adcMax = 4095;
 
-const char* ssid = "Atlantic Safaris";
-const char* password = "atlanticmarinainterna";
-String url = "https://temperaturas.atlanticsafaris.com/api/v1/temperatures";
+const char* ssid = "NOME_DA_SUA_REDE";
+const char* password = "SENHA_DA_SUA_REDE";
+String url = "http://SEU_IP_LOCAL:8000/api/v1/temperatures";
 
 void setup() {
     Serial.begin(115200);
