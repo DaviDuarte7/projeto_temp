@@ -1,7 +1,5 @@
 # Projeto de Monitoramento de Temperatura com ESP32
 
-![ESP32](imagens/esp32.jpg)
-
 ## Descrição
 
 Este projeto utiliza um **ESP32** para ler dados de temperatura de um sensor NTC 10KΩ. Os dados são processados e apresentados em uma interface web hospedada localmente, permitindo o monitoramento em tempo real.
