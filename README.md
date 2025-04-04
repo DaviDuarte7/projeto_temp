@@ -13,11 +13,11 @@ Este projeto utiliza um **ESP32** para ler dados de temperatura de um sensor NTC
 
 ## Estrutura do Projeto
 
-- **/www:**
-  - **/sensor_temperatura:**
-    - **index.php:** Página principal que exibe os dados de temperatura.
-    - **style.css:** Folha de estilo para a interface web.
-    - **script.js:** Script para atualização dinâmica dos dados na página.
+- **/exemple-php:**
+  - **/resources:**
+    - **views:** Página principal que exibe os dados de temperatura.
+    - **welcome.blade.php:** Folha de estilo para a interface web.
+    - **historico.blade.php:** Script para atualização dinâmica dos dados na página.
 
 ## Como Instalar e Configurar
 
@@ -41,20 +41,13 @@ Este projeto utiliza um **ESP32** para ler dados de temperatura de um sensor NTC
 ### 3. Desenvolvimento do Código
 
 - **Programação do ESP32:**
-  - Utilize a Arduino IDE para programar o ESP32.
+  - Utilize a Arduino IDE para programar o ESP32.(já está no diretorio git)
   - O código principal realiza a leitura do sensor NTC 10KΩ e disponibiliza os dados via servidor web.
 - **Desenvolvimento da Interface Web:**
   - A interface é construída com HTML, CSS e JavaScript.
-  - Utilize o Bootstrap para estilizar a página e garantir responsividade.
+  - Utilize o Bootstrap para estilizar a página
 
 ### 4. Testes com Postman
 
 - Utilize o Postman para testar os endpoints da API.
 - Verifique se os dados de temperatura estão sendo retornados corretamente.
-
-## Como Utilizar
-
-1. **Inicie o WampServer:**
-   - Abra o WampServer e certifique-se de que o servidor Apache está em execução.
-2. **Acesse a Interface Web:**
-   - No navegador, acesse `http://localhost/sensor_temperatura/` para visualizar os dados de temperatura em tempo real.
