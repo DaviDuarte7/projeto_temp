@@ -43,7 +43,7 @@ $data = array_slice($data, -20);
 <body class="bg-light">
 
     <!-- Navbar com botão hambúrguer -->
-    <nav class="navbar navbar-light bg-light shadow-sm">
+    <nav class="navbaar navbar-light bg-light shadow-sm">
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
                 ☰
