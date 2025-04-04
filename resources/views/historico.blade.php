@@ -20,6 +20,16 @@ if (!is_array($data) || empty($data)) {
 
 // Mantém apenas os 20 registros mais recentes
 $data = array_slice($data, -20);
+
+// Configuração da paginação
+$items_per_page = 5; // Mostra 5 registros por página
+$total_items = count($data);
+$total_pages = ceil($total_items / $items_per_page);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = max(1, min($page, $total_pages)); // Garante que a página esteja dentro do intervalo permitido
+
+$start_index = ($page - 1) * $items_per_page;
+$paginated_data = array_slice($data, $start_index, $items_per_page);
 ?>
 
 <!DOCTYPE html>
@@ -27,23 +37,31 @@ $data = array_slice($data, -20);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de Temperatura</title>
+    <title>Pergunte a Inês 😅</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-        /* Estilo para o menu lateral */
-        .offcanvas {
-            width: 250px;
+        .pagination-btn {
+            border: none;
+            background: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body class="bg-light">
 
     <!-- Navbar com botão hambúrguer -->
-    <nav class="navbaar navbar-light bg-light shadow-sm">
+    <nav class="navbar navbar-light bg-light shadow-sm">
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
                 ☰
@@ -60,9 +78,8 @@ $data = array_slice($data, -20);
         </div>
         <div class="offcanvas-body">
             <ul class="list-group">
+                 <li class="list-group-item"><a href="{{ url('/') }}" class="text-decoration-none">🏠 Temperatura Atual</a></li>
                 <li class="list-group-item"><a href="{{ url('/historico') }}" class="text-decoration-none">📊 Histórico de Dados</a></li>
-                <li class="list-group-item"><a href="{{ url('/') }}"class="text-decoration-none">🏠 Temperatura Atual</a>
-</li>
             </ul>
         </div>
     </div>
@@ -78,12 +95,10 @@ $data = array_slice($data, -20);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($data as $item): ?>
+                <?php foreach ($paginated_data as $item): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($item['id']); ?></td>
                         <td><?php echo htmlspecialchars($item['temperature']); ?> °C</td>
-                        
-                        <!-- Formatar a data e hora corretamente -->
                         <td>
                             <?php
                             $datetime = new DateTime($item['created_at']);
@@ -94,6 +109,13 @@ $data = array_slice($data, -20);
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <!-- Paginação -->
+        <div class="d-flex justify-content-center align-items-center">
+            <a href="?page=<?php echo max(1, $page - 1); ?>" class="pagination-btn <?php if ($page <= 1) echo 'disabled'; ?>">⬅️</a>
+            <span class="mx-3">Página <?php echo $page; ?> de <?php echo $total_pages; ?></span>
+            <a href="?page=<?php echo min($total_pages, $page + 1); ?>" class="pagination-btn <?php if ($page >= $total_pages) echo 'disabled'; ?>">➡️</a>
+        </div>
     </div>
 
 </body>
