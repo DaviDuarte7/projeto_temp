@@ -1,73 +1,76 @@
-# Projeto de Monitoramento de Temperatura com ESP32
+# Temperature Monitoring Project with ESP32
 
-## Descrição
+## Description
 
-Este projeto utiliza um **ESP32** para ler dados de temperatura de um sensor NTC 10KΩ. Os dados são processados e apresentados em uma interface web hospedada localmente, permitindo o monitoramento em tempo real. O projeto também apresenta um **histórico** das leituras de temperatura.
+This project uses an **ESP32** to read temperature data from a **NTC 10KΩ** sensor. The data is processed and displayed on a locally hosted web interface, allowing real-time monitoring. The project also provides a **history** of temperature readings.
 
-## Ferramentas Utilizadas
+## Tools Used
 
-- **WampServer:** Ambiente de desenvolvimento para Windows que permite a criação de servidores web com Apache, MySQL e PHP.
-- **Visual Studio Code (VS Code):** Editor de código.
-- **Arduino IDE:** Ambiente de desenvolvimento integrado para programação de placas Arduino e ESP32.
-- **Postman:** Ferramenta para testar APIs e endpoints web.
+- **WampServer:** Development environment for Windows that allows the creation of web servers with Apache, MySQL, and PHP.
+- **Visual Studio Code (VS Code):** Code editor.
+- **Arduino IDE:** Integrated development environment for programming Arduino and ESP32 boards.
+- **Postman:** Tool for testing APIs and web endpoints.
+- **Bootstrap:** CSS framework for styling the interface.
+- **Laravel:** PHP framework for robust web development.
 
-## Estrutura do Projeto
+## Project Structure
 
 - **/exemple-php:**
   - **/resources:**
-    - **views:** Página principal que exibe os dados de temperatura.
-    - **welcome.blade.php:** Folha de estilo para a interface web.
-    - **historico.blade.php:** Exibição do histórico de dados.
+    - **views:** Main page displaying temperature data.
+    - **welcome.blade.php:** Stylesheet for the web interface.
+    - **historico.blade.php:** Display of data history.
 
-## Como Instalar e Configurar
+## Installation and Configuration
 
-### 1. Instalação do WampServer
+### 1. Installing WampServer
 
-- Baixe o WampServer no site oficial: [WampServer](https://www.wampserver.com/).
-- Siga as instruções de instalação fornecidas no site.
-- Garanta que as bibliotecas Wamp estejam instaladas.
+- Download from the official website: [WampServer](https://www.wampserver.com/).
+- Follow the installation instructions provided on the site.
+- Ensure that the necessary Wamp libraries are installed.
 
-### 2. Configuração do Ambiente de Desenvolvimento
+### 2. Setting Up the Development Environment
 
 - **Visual Studio Code:**
-  - Baixe e instale o VS Code: [Visual Studio Code](https://code.visualstudio.com/).
-  - Instale as extensões necessárias, como: "Laravel", "Composer", "Markdown All in One", "PHP", "Dadroit JSON Generator".
+  - Download and install VS Code: [Visual Studio Code](https://code.visualstudio.com/).
+  - Install necessary extensions, such as: "Laravel", "Composer", "Markdown All in One", "PHP", "Dadroit JSON Generator".
 - **Arduino IDE:**
-  - Baixe e instale a Arduino IDE: [Arduino IDE](https://www.arduino.cc/en/software).
-  - Adicione o suporte ao ESP32:
-    - Vá em **File > Preferences**.
-    - Em **Additional Boards Manager URLs**, adicione: `https://dl.espressif.com/dl/package_esp32_index.json`.
-    - Vá em **Tools > Board > Boards Manager**, procure por "esp32" e instale.
+  - Download and install Arduino IDE: [Arduino IDE](https://www.arduino.cc/en/software).
+  - Add ESP32 support:
+    - Go to **File > Preferences**.
+    - In **Additional Boards Manager URLs**, add: `https://dl.espressif.com/dl/package_esp32_index.json`.
+    - Go to **Tools > Board > Boards Manager**, search for "esp32" and install.
 
-### 3. Desenvolvimento do Código
+### 3. Developing the Code
 
-- **Programação do ESP32:**
-  - Utilize a Arduino IDE para programar o ESP32 (já está no diretório git).
-  - O código realiza a leitura do sensor NTC 10KΩ e disponibiliza os dados via servidor web.
-- **Desenvolvimento da Interface Web:**
-  - A interface é construída com HTML, CSS e JavaScript.
-  - Foi utilizado o Bootstrap para a estilização da página.
+- **Programming the ESP32:**
+  - Use Arduino IDE to program the ESP32 (already included in the git directory).
+  - The code reads data from the NTC 10KΩ sensor and serves it via a web server.
+- **Developing the Web Interface:**
+  - The interface is built with HTML, CSS, and JavaScript.
+  - Bootstrap is used for page styling.
 
-### 4. WampServer
+### 4. WampServer Configuration
 
-- Após instalar todas as bibliotecas e garantir que o WampServer está funcionando, na barra de pesquisa do seu navegador digite: `http://localhost/` e você será direcionado a uma página onde poderá criar um servidor.
+- After installing all libraries and ensuring WampServer is running, open your browser and navigate to `http://localhost/`. This will direct you to a page where you can create a server.
   
-  Clique no link "Add a VirtualHost" e você será direcionado para uma página onde concluirá a criação do servidor. Adicione o nome desejado ao servidor e logo abaixo, em "Directory", insira o caminho do projeto: `wamp64/exemple-php/public`.
+  Click on the "Add a VirtualHost" link and follow the prompts to create the server. Provide your desired server name and, in the "Directory" field, enter the path to your project: `wamp64/exemple-php/public`.
 
-  Em seguida, selecione a versão do PHP que está sendo usada. Para verificar a versão, abra o Visual Studio Code, navegue até a pasta `wamp64` (onde deve conter todo o projeto) e, no terminal de comandos, digite `php -v`.
+  Select the PHP version in use. To check the version, open Visual Studio Code, navigate to the `wamp64` folder (where your project is located), and run `php -v` in the terminal.
 
-  Após iniciar a criação do servidor, clique com o botão direito no ícone verde do WampServer, vá em "Tools" e depois clique em "Restart DNS". Agora seu servidor está pronto para ser utilizado.
+  After setting up the server, right-click the green WampServer icon, go to "Tools", and select "Restart DNS". Your server is now ready for use.
 
-### 5. Testes com Postman
+### 5. Testing with Postman
 
-- Utilize o Postman para testar os endpoints da API.
-- Faça requisições GET para obter um JSON com o registro de temperatura recente.
-- Verifique se os dados de temperatura estão sendo retornados corretamente.
-- Utilize o URL da sua página para os testes.
+- Use Postman to test API endpoints.
+- Send GET requests to retrieve JSON data of the most recent temperature reading.
+- Verify that temperature data is returned correctly.
+- Use your site's URL for testing.
 
-## Notas Finais
+---
 
-- **Sensor Utilizado:** O projeto emprega um sensor NTC 10KΩ montado em uma protoboard com resistor de 10KΩ.
-- **Código do ESP32:** O código necessário para o funcionamento do ESP32 já está incluído no repositório, localizado na pasta `esp32/`.
-- **Função do Laravel:** O framework Laravel gerencia as rotas, o armazenamento e a exibição dos dados na interface web.
+**Final Notes**
 
+- **Sensor Used:** The project employs an NTC 10KΩ sensor mounted on a breadboard with a 10KΩ resistor.
+- **ESP32 Code:** The necessary code for the ESP32 is included in the repository, located in the `esp32/` folder.
+- **Role of Laravel:** The Laravel framework handles routing, data storage, and display on the web interface.
