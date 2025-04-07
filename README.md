@@ -64,8 +64,8 @@ Before getting started, you will need:
 ### 3. Code Development
 
 - **Programming the ESP32:**
-  1. Use the Arduino IDE to program the ESP32. The required code is in the `esp32/` folder of the repository.
-  2. The code reads data from the 10KΩ NTC sensor and makes it available to the web interface through a web server.
+    Use the Arduino IDE to program the ESP32. The required code is in the `esp32/` folder of the repository.
+    The code reads data from the 10KΩ NTC sensor and makes it available to the web interface through a web server.
 
 - **Web Interface Development:**
   - The interface is built using HTML, CSS, and JavaScript.
