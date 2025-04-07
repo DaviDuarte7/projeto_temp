@@ -65,4 +65,9 @@ Este projeto utiliza um **ESP32** para ler dados de temperatura de um sensor NTC
 - Verifique se os dados de temperatura estão sendo retornados corretamente.
 - Utilize o URL da sua página para os testes.
 
----
+## Notas Finais
+
+- **Sensor Utilizado:** O projeto emprega um sensor NTC 10KΩ montado em uma protoboard com resistor de 10KΩ.
+- **Código do ESP32:** O código necessário para o funcionamento do ESP32 já está incluído no repositório, localizado na pasta `esp32/`.
+- **Função do Laravel:** O framework Laravel gerencia as rotas, o armazenamento e a exibição dos dados na interface web.
+
